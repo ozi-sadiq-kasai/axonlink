@@ -22,7 +22,7 @@ input:focus {
 }`
 
 export const Axon = styled.img`
-width:100px
+width:100px;
 `
 export const Icon = styled.img`
 width:30px

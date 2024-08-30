@@ -2,7 +2,10 @@ const passport = require('passport');
 
 const scopeAuth = passport.authenticate('google', { scope: ['profile', 'email'] });
 
-const callbackAuth = passport.authenticate('google');
+const callbackAuth = passport.authenticate('google',{
+ failureRedirect:'/login',
+ session:true
+});
 
 const currentUser = ((req,res)=>{
  res.send(req.user)

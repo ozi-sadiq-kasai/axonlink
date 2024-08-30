@@ -2,13 +2,19 @@ import React, { useState } from "react";
 import DashNav from "../../components/dashNav/DashNav";
 import SideBar from "../../components/sideBar/SideBar";
 import { DashLayout } from './styleDashBoard';
+import ResearchForm from '../../components/researchForm/ResearchForm'
+import ResearchCard from "../../components/researchList/ResearchCard";
+
 
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
+
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+
 
   return (
     <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
@@ -22,38 +28,12 @@ const Dashboard = () => {
           <div className="top-sections">
             <section>1</section>
             <section>
-             <form action="">
-              <div>
-              <label htmlFor="category">Category: </label>
-              <input type="text"
-               name='category'
-               />
-               </div>
-              <div>
-              <label htmlFor="totals">Totals: </label>
-              <input type="number"
-               name='totals'
-               />
-               </div>
-              <div>
-              <label htmlFor="status">Status: </label>
-              <input type="text"
-               name='status'
-               />
-               </div>
-              <div>
-              <label htmlFor="status">Date: </label>
-              <input type="date"
-               name='date'
-               />
-               </div>
-               
-
-              <button>Submit</button>
-             </form>
+            <ResearchForm /> 
             </section>
           </div>
-          <section>3</section>
+          <section>
+           <ResearchCard />
+          </section>
         </DashLayout>
       </main>
     </div>

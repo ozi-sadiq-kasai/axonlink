@@ -2,6 +2,8 @@ import Orb from "../../components/Orb"
 import { Main,FormWrapper,Card,Divider,Button,FormLayout } from "./styleSignup"
 
 const Register = () => {
+
+
   return (
    <>
      <Orb />
@@ -42,7 +44,7 @@ const Register = () => {
       </Card>
      <Divider>or</Divider>
      <Button>
-      <a href="#">Signup with Google</a>
+      <a href="#">Login With Google</a>
      </Button>
     </FormLayout>
      <a href="/login">Already have an account?Login</a>

@@ -93,7 +93,7 @@ export const Divider = styled.div`
   color: grey;
 `;
 
-export const Button = styled.div`
+export const Button = styled.button`
   flex: 2;
   display: flex;
   justify-content: center;
@@ -103,6 +103,7 @@ export const Button = styled.div`
   background-color: red;
   color: white;
   cursor: pointer;
+  border:none
 
   a {
     color: white;
