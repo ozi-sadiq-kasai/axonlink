@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useNavigate} from 'react-router-dom'
 import { FaRegEdit,FaRegTrashAlt } from "react-icons/fa";
 import { useGlobalContext } from "../../context/GlobalContext";
 import { dateFormat } from "../../utils/dateFormat";
@@ -10,10 +11,14 @@ const ResearchCard = () => {
   getResearch()
  }, [])
 
+const navigate = useNavigate()
+const handleNavigate = (id)=>{
+ navigate(`/axonlink/update-research/${id}`)
+}
 
  //mapping research
  const researchList = getAllResearch.map((item)=><div>
-  <span><FaRegEdit/></span>
+  <span onClick={()=>handleNavigate(item._id)}><FaRegEdit/></span>
   <span
   onClick={()=>deleteResearch(item._id)}
   >

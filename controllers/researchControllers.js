@@ -32,7 +32,6 @@ const getResearch = async (req,res)=>{
 }
 
 const deleteResearch = async (req,res)=>{
-
  const {id} = req.params
   // Check if the provided id is a valid ObjectId
 if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -50,8 +49,42 @@ if (!mongoose.Types.ObjectId.isValid(id)) {
 
 }
 
+const updateResearch = async(req,res)=>{
+ const {id} = req.params
+   // Check if the provided id is a valid ObjectId
+if (!mongoose.Types.ObjectId.isValid(id)) {
+   return res.status(400).json({ message: 'Invalid ID format' });
+  }
+
+//Destructure validate input
+const {category,status,totals,date} = req.body
+
+//Update only the provided fields
+const updateData ={}
+   if (category !== undefined) updateData.category = category;
+   if (status !== undefined) updateData.status = status;
+   if (totals !== undefined) updateData.totals = totals;
+   if (date !== undefined) updateData.date = date;
+
+   // Find the research document by id and update it
+   const research = await Research.findByIdAndUpdate(
+     id,
+     { $set: updateData },
+     { new: true, runValidators: true, context: 'query' }
+   );
+
+   if (!research) {
+     return res.status(404).json({ message: 'Research not found' });
+   }
+
+   // Send success response
+   res.status(200).json({ message: 'Research updated successfully', research });
+ }
+
+
 module.exports = {
  createResearch,
  getResearch,
- deleteResearch
+ deleteResearch,
+ updateResearch
 }

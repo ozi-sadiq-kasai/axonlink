@@ -52,7 +52,8 @@ const deleteResearch = async(id)=>{
    postResearch,
    getResearch,
    getAllResearch,
-   deleteResearch
+   deleteResearch,
+   setGetAllResearch
    }}>
    {children}
   </GlobalContext.Provider>
