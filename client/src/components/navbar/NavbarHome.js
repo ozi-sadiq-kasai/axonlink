@@ -1,6 +1,5 @@
 import {useState,useEffect} from 'react'
 import logo from '../../assets/Logo.png'
-
 import { Image,Navbar,NavElement,StyledLink} from './styleNavbar'
 
 

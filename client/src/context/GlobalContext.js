@@ -13,7 +13,7 @@ export const GlobalProvider = ({children}) => {
   try {
    const response = await axios.get('/axonlink/get-research')
    setGetAllResearch(response.data.researchList);
-    console.log(response.data.researchList);
+    // console.log(response.data.researchList);
   } catch (error) {
     console.error('Error fetching research:', error);
   }
@@ -24,7 +24,14 @@ export const GlobalProvider = ({children}) => {
  const postResearch = async(formData)=>{
   try {
   const response = await axios.post('/axonlink/create-research',formData)
-  setAllPostedResearch([...allpostedresearch,response.formData])
+     if (response.status === 200) {
+      // Assuming response.data contains the new research item
+      const newResearchItem = response.data.research;
+
+      // Update both states to include the new research item
+      setAllPostedResearch([...allpostedresearch, newResearchItem]);
+      setGetAllResearch([...getAllResearch, newResearchItem]);
+    }
   } catch (error) {
     console.error("Error posting research data:", error);
   }

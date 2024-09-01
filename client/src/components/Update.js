@@ -86,9 +86,10 @@ catch (error) {
 
 
   return (
-    <div>
+    <div style={{height:'100vh'}}>
      <Link to='/dashboard'>Back to Dashboard</Link>
-       <h2>Update Research</h2>
+     <div style={{display:'flex',height:'70%',flexDirection:'column',textAlign:'center',justifyContent:'center'}}>
+       <h2 style={{color:'#AAB2B3'}}>Update Research</h2>
        <form onSubmit={handleSubmit}>
         <div>
          <input
@@ -126,8 +127,9 @@ catch (error) {
           // onFocus={handleFocus}
           />
         </div>
-         <button type='submit'>Submit</button>
+         <button type='submit' style={{backgroundColor:'#94B1B3',color:'white',width:'100px',border:'none',padding:'2px 5px'}}>Submit</button>
        </form>
+          </div>
     </div>
    )
 

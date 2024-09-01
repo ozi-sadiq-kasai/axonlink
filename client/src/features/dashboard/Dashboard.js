@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import DashNav from "../../components/dashNav/DashNav";
 import SideBar from "../../components/sideBar/SideBar";
-import { DashLayout } from './styleDashBoard';
+import { IoIosClose } from "react-icons/io";
+import { DashLayout,Sidebutton } from './styleDashBoard';
 import ResearchForm from '../../components/researchForm/ResearchForm'
 import ResearchCard from "../../components/researchList/ResearchCard";
+import Chart from "../../components/chart/Chart";
 
 
 const Dashboard = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
 
   const toggleSidebar = () => {
@@ -22,11 +24,15 @@ const Dashboard = () => {
       <main style={{ display: 'flex', flex: 1 }}>
         <SideBar isOpen={isSidebarOpen} />
         <DashLayout isSidebarOpen={isSidebarOpen}>
-          <button onClick={toggleSidebar} style={{ marginBottom: '10px',width:'5%' }}>
-            X
-          </button>
+ <Sidebutton
+  onClick={toggleSidebar}>
+  <IoIosClose />
+ </Sidebutton>
+
           <div className="top-sections">
-            <section>1</section>
+            <section>
+             <Chart />
+            </section>
             <section>
             <ResearchForm /> 
             </section>

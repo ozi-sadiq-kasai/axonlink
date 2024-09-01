@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { IoIosNotificationsOutline } from "react-icons/io";
 
 export const Nav = styled.nav`
-background-color:gray;
+background-color:#94B1B3;
 display:flex;
 justify-content:space-between;
 align-items:center;
